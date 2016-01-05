@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>banner</title>
+  <style>
+  *{margin:0px; padding:0px; list-style:none;}
+  a {text-decoration: none;}
+  .banner {width: 100%; height: 400px; position: relative;}
+  .banner-image {position: absolute; width: 100%; height: 100%; overflow: hidden;}
+  .banner-image li {position: absolute; width: 100%; height: 100%; left: 10000px;}
+  .banner-image li.first {position: absolute; width: 100%; height: 100%; left: 0;}
+  .banner-button {position: absolute; bottom: 20px; left: 50%; margin-left: -100px; z-index: 10;}
+  .banner-button li {padding: 5px 10px; cursor: pointer;}
+  .banner-button li.cur {background-color: red;}
+  .banner li {float: left; color: #fff;}
+  .banner a {position: absolute; top: 50%; margin-top: -30px; z-index: 10; color: #fff; font-size: 50px;}
+  .banner-prev {left: 30px;}
+  .banner-next {right: 30px; }
+  </style>
+</head>
+<body>
+  <div class="banner-container">
+    <div class="banner">
+      <ul class="banner-image">
+        <li class="first" style="background-color: blue;"><h1>1</h1></li>
+        <li style="background-color: green;"><h1>2</h1></li>
+        <li style="background-color: pink;"><h1>3</h1></li>
+        <li style="background-color: #000;"><h1>4</h1></li>
+      </ul>
+      <ul class="banner-button">
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+      <a href="javascript:void(0);" title="prev" class="banner-prev">&lt;</a>
+      <a href="javascript:void(0);" title="next" class="banner-next">&gt;</a>
+    </div>
+  </div>
+
+<script src="../js/jquery-2.0.3.js"></script>
+<script src="banner.js"></script>
+<script>
+  $(function () {
+    var b = new Banner({
+      container: '.banner-container'
+    });
+
+    $(b).on('hmouseenter', function () {});
+    $(b).on('hmouseleave', function () {});
+    $(b).on('hbeforemove', function () {});
+    $(b).on('haftermove', function () {});
+
+
+  });
+</script>
+</body>
+</html>
