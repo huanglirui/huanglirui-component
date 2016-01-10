@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dialog</title>
+  <style>
+  * {margin: 0; padding: 0; list-style-type: none;}
+  html {
+    overflow-y: scroll;
+    overflow-x: hidden; 
+  }
+  #dialog-container {position: absolute;}
+  .dialog {border: 1px solid blue; position: absolute;}
+  .dialog-title .close {float: right; height: 30px; width: 30px; text-align: center; line-height: 30px;}
+  .dialog-title .draggable {display: block; height: 30px; cursor: move; background-color: #ddd;}
+  .dialog-body {}
+  .dialog-footer {position: absolute; width: 100%; bottom: 0; left: 0; text-align: right;}
+  .dialog-footer button {margin: 0 5px;}
+  .mask {position: absolute; left: 0; top: 0; right: 0; bottom: 0;}
+  </style>
+</head>
+<body>
+  <div id="dialog-container">
+    
+  </div>
+
+<script src="../js/jquery-2.0.3.js" type="text/javascript"></script>
+<script src="dialog.js" type="text/javascript"></script>  
+<script>
+  $(function () {
+    var d = new Dialog({
+      title: 'title',
+      content: 'content',
+      buttons: {
+        items: [{text: '确定', disabled: false, callback: function () {alert('1');}}, 
+                {text: '失效', disabled: true, callback: function () {}}, 
+                {text: '取消', disabled: false, callback: function () {d.hide();}}
+               ]
+      }
+
+    });
+    $(d).on('hload', function () {
+      console.log('load');
+    });
+    d.render('#dialog-container');
+    d.renderMask();
+    d.center();
+
+
+    
+
+  });
+</script>
+</body>
+</html>
